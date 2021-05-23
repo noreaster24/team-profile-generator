@@ -16,8 +16,8 @@ header {
 
 .employee-tile {
     width: 150px;
+    border-radius: 20px;
     border: 1px solid black;
-    align-items: center;
 }
 
 .card-title {
