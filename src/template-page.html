@@ -5,29 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>My Team</title>
 </head>
 
-<header id="title">My Team</header>
-
 <body>
-    <section id="container">
-
-        <div class="employee-tile">
-            <div class="card-title">
-                <h1>Name</h1>
-                <h2>Job Title</h2>
-            </div>
-            <div class="card-body">
-                <h4>Id#</h4>
-                <h4>Email Address</h4>
-                <h4>GitHub</h4>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 jumbotron mb-3 title">
+                <h1 class="text-center">My Team</h1>
             </div>
         </div>
-
-    </section>
-
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="team-container col-12 d-flex justify-content-center">
+                `${team}`
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
