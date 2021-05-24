@@ -2,9 +2,12 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const inquirer = require("inquirer");
+const path = require("path");
 const fs = require("fs");
-
 const createPage = require('./lib/renderPage');
+
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 // prompt user with team questions for all roles
 const questions = [
@@ -63,28 +66,28 @@ const generateTeam = () => {
                         message: "Would you like to add another team member?",
                     },
                 ])
-                .then((moreAnswers) => {
+                .then((answers2) => {
                     if (answers.role === "Manager") {
-                        const manager = new Manager(answers.name, answers.id, answers.email, answers.role, answers.officeNumber);
+                        const manager = new Manager(answers.name, answers.id, answers.email, answers.role, answers2.officeNumber);
                         team.push(manager);
                     };
 
                     if (answers.role === "Engineer") {
-                        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.role, moreAnswers.github);
+                        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.role, answers2.github);
                         team.push(engineer);
                     };
 
                     if (answers.role === "Intern") {
-                        const intern = new Intern(answers.name, answers.id, answers.email, answers.role, moreAnswers.school);
+                        const intern = new Intern(answers.name, answers.id, answers.email, answers.role, answers2.school);
                         team.push(intern);
                     }
-                    if (moreAnswers.addMember) {
+                    if (answers2.addMember) {
                         generateTeam();
                     } else {
                         team.forEach((team) => {
                             console.log(team);
                         });
-                        fs.writeFile(outputPath, renderPage(team), (err) => {
+                        fs.writeFile(outputPath, createPage(team), (err) => {
                             if (err) {
                                 throw err;
                             }
