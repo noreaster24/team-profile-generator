@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 48px;
+    border-radius: 20px;
+    width: 95%;
+    margin: 5px auto;
+}
+
+.employee-tile {
+    width: 150px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.card-title {
+    background-color: blue;
+    color: white;
+}
+
+.card-title h1 {
+    font-size: 24px;
+}
+
+.card-title h2 {
+    font-size: 20px;
+}
+
+.card-body {
+    background-color: #efefef;
+}
